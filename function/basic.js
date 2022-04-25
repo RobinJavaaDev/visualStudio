@@ -9,7 +9,8 @@ let result = sum(10 ,20, 30);
 console.log('결과는 ' + result);
 
 //2. 함수표현식으로도 정의
-let myfnc = function(val, val2){
+let myfnc = function(val, val2) // of function 지우고 ()=>....
+{
   var myVal = 10;
   return val + val2 + myVal;
 }
@@ -57,7 +58,7 @@ let result = myinfo(person);
 console.clear();
 // 자바스크립트 에서 문자열, 숫자, boolean , ary=배열로 매개값을 씀
 // 함수를 매개변수로 활용가능
-let funcParam = (val, ind, ary) =>{
+let funcParam = (val, ind, ary) =>{ //화살표 함수
 console.log(myinfo(val))
 }
 persons.forEach(function (val, ind, ary) {
