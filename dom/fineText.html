@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom/findText.html</title>
+  <style>
+    #show{
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+    }
+    span{
+      display: inline-block;
+      width: 80px;
+      height: 20px;
+      margin: 2px;
+      padding: 2px;
+      border: 1px red solid;
+    }
+    #show>span:nth-child(1){
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" name="" id="userVal">
+  <div id="show"></div>
+  <script>
+    let data =
+     `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident sed, officiis nobis nam minus explicabo eos assumenda quibusdam et neque laudantium iusto impedit quo? Rerum non aliquam cupiditate adipisci aspernatur.`;
+    let dataAry = data.split(' ');
+    
+    let attach = document.getElementById('show');
+    dataAry.forEach(function(elem) {
+      let span = document.createElement('span');
+      span.innerHTML = elem;
+      attach.appendChild(span);
+    });
+
+    let user = document.getElementById('userVal');
+    user.addEventListener('change', function(){
+      console.log(user.value);
+      let spans = document.querySelectorAll('span');
+      console.log(spans);
+      spans.forEach(function(e, ind){
+        console.log(e, ind);
+        if(e.innerHTML == user.value){
+          //document.querySelector('#show>span:nth-child(${ind+1})').style.display='none';
+          e.style.display = 'none';
+          //e.remove;
+        }
+      });
+      user.value = '';
+    });
+    
+  </script>
+</body>
+</html>
